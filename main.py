@@ -58,3 +58,7 @@ async def validate_sensor_data(request: Request):
     else:
         df.to_csv(CSV_VALIDATED, mode="a", header=not os.path.exists(CSV_VALIDATED), index=False)
         return {"status": "accepted", "message": "validated"}
+@app.get("/")
+def read_root():
+    return {"message": "Oracle01 backend is live!"}
+
